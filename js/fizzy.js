@@ -1,23 +1,26 @@
-var results = document.getElementById('displayResults');
+$(document).ready(function(){
+	var userAnswer = + prompt("Enter a number");
 
-for (var i = 1; i < 101; i++) {
+	console.log(userAnswer);
 
-    if (i % 3 == 0 && i % 5 == 0){
-        
-        results.innerHTML += "FizzBuzz <br>";
-    
-    } else if (i % 3 == 0) {
-    
-        results.innerHTML += "Fizz <br>";
-    
-    } else if (i % 5 == 0) {
-        
-        results.innerHTML += "Buzz <br>";
-    
-    } else {
-        
-       results.innerHTML += i + "<br>";
+	while (userAnswer % 1 !== 0) {
+		// ask them to re-enter
+		userAnswer = parseInt(prompt("Enter again!"));
+	}
+	
+	fizzBuzz(userAnswer);
+});
 
-    }
-
-}
+var fizzBuzz = function (number) {
+	for (var i = 1; i <= number; i++) {
+	    if (i % 3 == 0 && i % 5 == 0){
+	        $('#displayResults').append("FizzBuzz <br>");
+	    } else if (i % 3 == 0) {
+	        $('#displayResults').append("Fizz <br>");
+	    } else if (i % 5 == 0) {
+	        $('#displayResults').append("Buzz <br>");
+	    } else {
+	        $('#displayResults').append(i + "<br>");
+	    }
+	}
+};
